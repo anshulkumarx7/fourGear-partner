@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.fourGearContact {
+  width: 100vw;
+  max-width: 100%;
+  /* height: 70.97vh; */
+  /* border: 2px solid black; */
+  background: linear-gradient(
+    359.39deg,
+    rgba(255, 255, 255, 0.44) -0.53%,
+    rgba(200, 97, 2, 0.31) 99.44%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:3rem 0;
+}
+.fourGearContactContainer {
+  width: 90.042vw;
+  /* height: 44.55vh; */
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fourGearContactContainer img{
+    max-width:33.736vw;
+    height: 100%;
+}
+.fourGearContactContent {
+  font-family: "Poppins", sans-serif;
+  padding: 3rem;
+}
+.fourGearContactContent h1 {
+  font-weight: 600;
+  font-size: 2.638vw;
+  line-height: 2.84vw;
+  color: #b65e0c;
+}
+.fourGearContactContent img{
+    max-width:3.7rem;
+    height:3.4rem;
+}
+.fourGearContactContent h3 {
+  font-weight: 300;
+  font-size: 1.73vw;
+  line-height: 1.94vw;
+  padding:1.5rem 0;
+}
+.fourGearContactIcon{
+    display: flex;
+    align-items: center;
+}
+.fourGearContactIcon img{
+    padding:0 1rem;
+    color:black;
+}
+.fourGearContactDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media screen and (max-width:592px) {
+    .fourGearContact{
+        padding:1.5rem 0;
+    }
+    .fourGearContactContainer{
+        width:23.8rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .fourGearContactContent{
+        padding: unset;
+    }
+    .fourGearContactContent h1{
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    .fourGearContactContent h3{
+        padding:0.5rem 0;
+    }
+    .fourGearContactIcon img{
+        width:2rem;
+        height:2rem;
+        padding:0 0.5rem;
+    }
+    .fourGearContactIcon h3{
+        padding: unset;
+    }
+    
+}

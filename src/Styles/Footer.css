@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --primary-color: #b65e0c;
+}
+.fourGearFooter {
+  width: 100vw;
+  max-width: 100%;
+  /* height: 28.05vh; */
+  height:auto;
+  /* border: 2px solid black; */
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  padding:2rem 0;
+}
+.fourGearFooterContainer {
+  width: 100%;
+  /* height: 17.083vh; */
+  height:auto;
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fourGearFooterLeft {
+  width: 32.292vw;
+  height: 100%;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  margin-left: 6.25vw;
+
+}
+.fourGearFooterLeft img {
+  max-width: 8.4722vw;
+  /* height: 12.3rem; */
+}
+.fourGearFooterLeft p {
+  font-weight: 400;
+  font-size: 1.25vw;
+  line-height: 1.5vw;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+.fourGearFooterContent {
+  width: 24.083vw;
+  height: 100%;
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  padding:1rem;
+}
+.fourGearFooterRight {
+  width: 19.82vw;
+  height: 100%;
+  /* border: 2px solid purple; */
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-right:6.25vw;
+  justify-content: center;
+  color: #ffffff;
+}
+.fourGearFooterRight img{
+  max-width:1.945vw;
+}
+.fourGearFooterRightContent{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+.fourGearFooterRight h2 {
+  font-weight: 700;
+  font-size: 1.46vw;
+
+}
+.fourGearFooterRight p {
+  font-weight: 400;
+  font-size: 1.46vw;
+  padding-left: 1.6vw;
+}
+@media screen and (max-width:523px){
+  .fourGearFooter{
+    padding: 0;
+  }
+  .fourGearFooterLeft p{
+    font-size: 4.67176px;
+    line-height: 6px;
+  }
+  .fourGearFooterRight h2{
+    font-size: 0.54rem;
+    line-height: 0.7rem;
+  }
+  .fourGearFooterRight img{
+    width:0.927rem; 
+  }
+  .fourGearFooterRight p{
+    font-size: 0.54rem;
+    line-height: 0.7rem;
+  }
+  .fourGearFooterRightContent{
+    padding-top: 0.5rem;
+  }
+}

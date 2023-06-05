@@ -1,0 +1,62 @@
+.fourGearSteps {
+  width: 100vw;
+  max-width: 100%;
+  /* height: 86.527vh; */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  margin: 5rem 0;
+}
+.fourGearStepsContainer {
+  width: 81.527vw;
+  /* height: 68.61vh; */
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fourGearStepsContainer h1 {
+  font-weight: 700;
+  font-size: 1.94vw;
+  color: #b65e0c;
+  padding: 0.5rem;
+  /* line-height: 75px; */
+}
+.fourGearStepsContainer h4 {
+  font-weight: 300;
+  font-size: 1.11vw;
+  line-height: 1.05vw;
+}
+.fourGearStepsInnerContainer{
+    width:100%;
+    /* height:39.1667vh; */
+    border:2px solid red;
+    margin:4rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.fourGearStepsSubInnerContainer{
+    width:12.986vw;
+    /* height:100%; */
+    border:2px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.fourGearStepsSubInnerContainer img{
+    max-width:6.4722vw;
+}
+.fourGearStepsSubInnerContainer h2{
+    font-weight: 500;
+    font-size: 1.38vw;
+    /* margin-top: 4rem; */
+    /* line-height: 39px; */
+} 
+.fourGearStepsSubInnerContainer h5{
+    font-weight:300;
+    font-size:1.12vw ;
+    text-align: center;
+}
