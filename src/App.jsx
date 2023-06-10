@@ -6,6 +6,7 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import Steps from "./Components/Steps";
 import Join from "./Components/Join";
+import MechanicsDetails from "./Components/MechanicsDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Contact /> */}
       <Join />
       <Steps />
+      <MechanicsDetails />
       <Footer />
       </BrowserRouter>
       
