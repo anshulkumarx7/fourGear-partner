@@ -12,8 +12,8 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar />
-      <Login />
-      <Contact />
+      {/* <Login />
+      <Contact /> */}
       <Join />
       <Steps />
       <Footer />
