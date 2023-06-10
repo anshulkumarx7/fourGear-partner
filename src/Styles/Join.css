@@ -1,0 +1,84 @@
+.fourGearJoin {
+  width: 100vw;
+  max-width: 100%;
+  /* height: 137.9166vh; */
+  background: linear-gradient(
+    359.39deg,
+    rgba(255, 255, 255, 0.44) -0.53%,
+    rgba(200, 97, 2, 0.31) 99.44%
+  );
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding:5rem 0;
+}
+.fourGearJoinLeftContainer{
+    width:40.23vw;
+    /* height:76.94vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid black;
+}
+.fourGearJoinLeftContainer img{
+    max-width:40vw;
+}
+.fourGearJoinLeftContainer h1{
+    font-size: 2.2vw;
+}
+.fourGearJoinLeftContainer h5{
+    font-size: 1vw;
+    text-align: center;
+}
+.colorChange{
+    color:#B65E0C;
+    font-size: 2.5vw;
+}
+.fourGearJoinRightContainer{
+    width:33.54vw;
+    /* height:121.11vh; */
+    border:2px solid black;
+    background-color:#ffffff;
+    border-radius: 2.84vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fourGearJoinRightContainer h2{
+    font-size:2vw;
+    margin:1rem 0;
+    text-align: center;
+    color:#B65E0C;
+}
+.fourGearJoinForm{
+    width:26.31vw;
+    height:93.611vh;
+    border:2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.fourGearJoinForm input[type="text"],input[type="number"],input[type="email"]{
+    width:100%;
+    height:4.5rem;
+    border-radius: 2.5vw;
+    background-color: #F2F2F2;
+    border: none;
+    text-indent: 2rem;
+    font-size: 1vw;
+}
+.fourGearJoinForm input::placeholder{
+    font-size: 0.8vw;
+}
+.fourGearJoinButton{
+    padding:1rem 2rem;
+    border: none;
+    font-size: 1vw;
+    color:#ffffff;
+    background-color: #B65E0C;
+    border-radius: 1.1rem;
+    margin:1.5rem;
+    cursor: pointer;
+
+}

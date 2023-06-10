@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import Steps from "./Components/Steps";
+import Join from "./Components/Join";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Login />
       <Contact />
+      <Join />
       <Steps />
       <Footer />
       </BrowserRouter>
