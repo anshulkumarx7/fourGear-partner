@@ -175,6 +175,7 @@
     } 
     .fourGearJoinForm input[type="text"],.fourGearJoinForm [type="number"],.fourGearJoinForm [type="email"]{
         height:3rem;
+        font-size: 0.8rem;
     } 
     .inputFile{
         height:3rem
