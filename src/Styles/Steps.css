@@ -70,6 +70,12 @@
   .fourGearStepsContainer{
     width:100%;
   }
+  .fourGearStepsContainer h1{
+    font-size: 1rem;
+  }
+  .fourGearStepsContainer h4{
+    font-size: 0.8rem;
+  }
   .fourGearStepsInnerContainer{
     flex-direction: column;
     align-items: center;
@@ -78,6 +84,12 @@
   .fourGearStepsSubInnerContainer{
     margin: 1.5rem 0;
     width:14rem;
+  }
+  .fourGearStepsSubInnerContainer h5{
+    font-size: 0.7rem;
+  }
+  .fourGearStepsSubInnerContainer h2{
+    font-size: 0.9rem;
   }
   .fourGearStepsSubInnerContainer img{
     max-width:4rem;
