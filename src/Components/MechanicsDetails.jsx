@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Styles/MechanicsDetails.css";
 import { RxCross2 } from "react-icons/rx";
-import { GrAdd } from "react-icons/gr";
+import { IoIosAddCircle, IoIosRemoveCircle } from "react-icons/io";
 function MechanicsDetails() {
   const [mechanicDetails, setMechanicsDetails] = useState([
     {
@@ -23,7 +23,15 @@ function MechanicsDetails() {
     list[index][name] = value;
     setMechanicsDetails(list);
   };
-  console.log(mechanicDetails);
+  const handleRemove = (index) => {
+    const list = [...mechanicDetails];
+    list.splice(index, 1);
+    setMechanicsDetails(list);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(mechanicDetails);
+  };
   return (
     <div className="fourGearMechanics">
       <h1>Enter all the mechanics details</h1>
@@ -64,26 +72,24 @@ function MechanicsDetails() {
               </div>
             );
           })}
-          {/* <button className="mechanicsRemoveButton">
-            <RxCross2 className="rxcross2" />
-            Remove
-          </button> */}
-          {/* {mechanicDetails.length === 5 ? (
-            <h5 className="exceededMechanicMessage">
-              Can't add more Mechanics
-            </h5>
-          ) : ( */}
-            <div className="fourGearMechanicsDetailsButtons">
-              <button onClick={handleAddMore}>+Add more</button>
-              <button className="mechanicsRemoveButton">
-                <RxCross2 className="rxcross2" />
+          <div className="fourGearMechanicsDetailsButtons">
+            {mechanicDetails.length < 5 && (
+              <button onClick={handleAddMore}>
+                <IoIosAddCircle className="rxcross2" />
+                Add more
+              </button>
+            )}
+
+            {mechanicDetails.length > 1 && (
+              <button className="mechanicsRemoveButton" onClick={handleRemove}>
+                <IoIosRemoveCircle className="rxcross2" />
                 Remove
               </button>
-            </div>
-          {/* )} */}
+            )}
+          </div>
         </div>
       </div>
-      <button className="mechanicSubmitButton">Submit</button>
+      <button className="mechanicSubmitButton" onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
