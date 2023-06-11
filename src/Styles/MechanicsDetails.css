@@ -48,6 +48,7 @@
 .fourGearMechanicsForm{
     display: flex;
     justify-content: space-between;
+    margin:0.5rem 0;
 }
 .fourGearMechanicsSubContainer input{
     width:18.611vw;
@@ -76,4 +77,28 @@
     border-radius: 1.1rem;
     color:#ffffff;
     margin-top:6rem;
+    
+}
+.exceededMechanicMessage{
+    font-size: 1vw;
+    color:#B65E0C;
+    text-align: center;
+    margin:1rem 0;
+}
+.rxcross2{
+    font-size:1.2vw;
+    /* padding-left: 0.3rem; */
+    color:#B65E0C;
+    /* font-weight: 700; */
+}
+.mechanicsRemoveButton{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:1.8rem;
+}
+.fourGearMechanicsDetailsButtons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
