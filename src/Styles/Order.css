@@ -102,16 +102,6 @@
   .orderBars{
     display: unset;
   }
-  .fourGearPartnerOrderDetailTable td,.fourGearPartnerOrderDetailTable th{
-    padding: 3.5rem 1rem;
-  }
-  /* .fourGearPartnerOrderDetailTable td{
-    font-size:1rem;
-  } */
-  /* .fourGearPartnerOrderDetailTable h2{
-    font-size:1rem;
-    font-weight: 600;
-  } */
   .fourGearPartnerOrderTableHeader img{
     height:1.3rem;
     width:1.3rem;
