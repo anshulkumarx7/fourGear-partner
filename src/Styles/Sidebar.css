@@ -1,7 +1,7 @@
 .fourGearPartnerSidebar{
     width:17.91vw;
     color:#ffffff;
-    min-height:90vh;
+    /* min-height:90vh; */
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
@@ -21,8 +21,7 @@
     width:3rem;
 }
 .fourGearPartnerLogout{
-    margin-top:20rem;
-    /* margin-bottom: 5rem; */
+    margin-top:13.888vw;
     
 }
 .fourGearPartnerLogout h2{
@@ -33,7 +32,6 @@
     text-decoration: none;
     color: black;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     padding: 1rem;
