@@ -7,7 +7,6 @@ import Footer from "./Components/Footer";
 import Steps from "./Components/Steps";
 import Join from "./Components/Join";
 import MechanicsDetails from "./Components/MechanicsDetails";
-import Sidebar from "./Components/sideBar";
 import Dashboard from "./Pages/Dashboard";
 
 function App() {
