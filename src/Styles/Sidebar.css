@@ -36,3 +36,53 @@
     justify-content: center;
     padding: 1rem;
 }
+.sidebarCrossButton{
+    height:4rem;
+    width:4rem;
+    color:#b65e0c;
+    align-self: flex-end;
+    margin: 0.5rem;
+    display:none;
+
+}
+@media screen and (max-width:550px) {
+    .fourGearPartnerSidebar{
+        position: fixed;
+        left:-100vw;
+        opacity: 999;
+        width:9rem;
+        height:30rem;
+        border: 2px solid black;
+		transition:all 1s ease-in-out;  
+    }
+    .responsive_sidebar{
+        transform: translateX(100vw);
+        background-color: #ffffff;
+    }
+    .sidebarCrossButton{
+        display: unset;
+        height:2rem;
+        width: 2rem;
+    }
+    .fourGearPartnerSidebar img{
+        margin:0.5rem auto;
+        height:3rem;
+        width:4rem;
+    }
+    .fourGearPartnerSidebarOption h2{
+        display:none;
+    }
+    .fourGearPartnerSidebarOption{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .partnerClipboard{
+        color:#b65e0c !important;
+    }
+    .fourGearPartnerLogout{
+        /* margin-top: 2rem; */
+        margin-top:1rem;
+    }
+    
+}

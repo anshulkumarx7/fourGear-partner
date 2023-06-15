@@ -6,12 +6,14 @@ import IdIcon from "../assets/id.svg";
 import CustomerIcon from "../assets/customer.svg";
 import MobileIcon from "../assets/mobile.svg";
 import BikeIcon from "../assets/bike.svg";
+import { FaBars } from 'react-icons/fa';
 
 import StatusIcon from "../assets/statussvg.svg";
-function Order() {
+function Order(props) {
   return (
     <div className="fourGearPartnerOrder">
       <div className="fourGearPartnerOrderHeader">
+        <FaBars className="orderBars" onClick={props.handleBars}/>
         <div className="fourGearPartnerOrderDate">
           <SlCalender className="calender" />
           <h2>June 15,2023</h2>

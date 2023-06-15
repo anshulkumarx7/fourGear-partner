@@ -88,3 +88,34 @@
 .fourGearPartnerOrderTableHeader img{
     padding-right:0.5rem;
 }
+.orderBars{
+  height:2vw;
+  width:2vw;
+  margin-left:2rem;
+  color:#b65e0c;
+  display:none;
+}
+@media screen and (max-width:550px) {
+  .fourGearPartnerOrder{
+    width:100vw;
+  }
+  .orderBars{
+    display: unset;
+  }
+  .fourGearPartnerOrderDetailTable td,.fourGearPartnerOrderDetailTable th{
+    padding: 0.5rem;
+  }
+  .fourGearPartnerOrderTableHeader img{
+    height:1.3rem;
+    width:1.3rem;
+  }
+  .fourGearPartnerOrderMenus a{
+    padding:0.5rem;
+  }
+  .calender{
+    width:2rem;
+    height:1rem;
+  }
+
+  
+}
