@@ -102,11 +102,14 @@
   .orderBars{
     display: unset;
   }
-  .fourGearPartnerOrderTableHeader img{
-    height:1.3rem;
-    width:1.3rem;
-  } 
   .fourGearPartnerOrderMenus a{
+    padding:0.5rem;
+  }
+  .fourGearPartnerOrderDetailTable img{
+    width:1rem;
+    height:1rem;
+  }
+  .fourGearPartnerOrderDetailTable th,.fourGearPartnerOrderDetailTable td{
     padding:0.5rem;
   }
   .calender{
