@@ -15,7 +15,7 @@ function Sidebar(props) {
     <RxCross1  className='sidebarCrossButton' onClick={props.handleRemove}/>
     <img src={logoSidebar} alt="logo" />
     <div className='fourGearPartnerSidebarMenus'>
-        <SidebarOption  iconName={BsFillClipboard2Fill} optionName="DashBoard" route="/a" />
+        <SidebarOption  iconName={BsFillClipboard2Fill} optionName="DashBoard" route="/dashboard" />
         <SidebarOption  iconName={FaFileSignature} optionName="Daily Report" route="/" />
     </div>
     <div className="fourGearPartnerLogout">

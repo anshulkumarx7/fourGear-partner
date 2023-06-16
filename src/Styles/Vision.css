@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.fourGearVision {
+  width: 100vw;
+  max-width: 100%;
+  /* height: 76.6vh; */
+  background-color: #eeeeee;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:4rem 0;
+}
+.fourGearVisionContainer {
+  width: 79.236vw;
+  /* height: 59.167vh; */
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fourGearVisionContainer img {
+  max-width: 21.65vw;
+  height: 100%;
+}
+.fourGearVisionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+.fourGearVisionContent h1 {
+  font-weight: 600;
+  font-size: 2.638vw;
+  line-height: 2.84vw;
+  color: #b65e0c;
+}
+.fourGearVisionContent h3 {
+  font-weight: 400;
+  font-size: 1.73vw;
+  line-height: 1.94vw;
+  text-align: center;
+}
+@media screen and (max-width:470px){
+    .fourGearVisionContainer img{
+        max-width:10.8rem;
+        height:10.8rem;
+    }
+    .fourGearVision{
+        padding: 2rem 0;
+    }
+}

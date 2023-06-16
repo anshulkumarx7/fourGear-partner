@@ -65,9 +65,14 @@
         padding:1.5rem 0;
     }
     .fourGearContactContainer{
-        width:23.8rem;
+        width:30.8rem;
         flex-direction: column;
         justify-content: center;
+    }
+    .fourGearContactContainer img{
+        max-width:30rem;
+        height:17rem;
+        margin-bottom: 2rem;
     }
     .fourGearContactContent{
         padding: unset;
@@ -75,17 +80,34 @@
     .fourGearContactContent h1{
         text-align: center;
         padding: 0.5rem 0;
+        font-size:2rem;
     }
     .fourGearContactContent h3{
         padding:0.5rem 0;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
     }
     .fourGearContactIcon img{
-        width:2rem;
-        height:2rem;
-        padding:0 0.5rem;
+        width:4rem;
+        height:3rem;
+        margin: unset;
+        /* padding:0 0.5rem; */
+    }
+    .fourGearContactIcon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .fourGearContactIcon h3{
         padding: unset;
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width:800px){
+    .fourGearContact{
+        height:80vh;
     }
     
 }

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.fourGearWork {
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+  margin: 5rem 0;
+  /* height: 83.75vh; */
+  /* border: 2px solid black; */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+
+}
+.fourGearworkContainer {
+  width: 68.61vw;
+  /* height: 59vh; */
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fourGearworkContainer h1 {
+  font-weight: 600;
+  font-size: 2.5vw;
+  line-height: 3.3vw;
+  text-align: center;
+  color: #b65e0c;
+  padding: 3rem 0;
+}
+/* .fourGearWorkInnerContainer{
+  border:2px solid black;
+} */
+.fourGearWorkTimeline {
+  width: 65.45vw;
+  /* height:21.14vh; */
+  /* border: 2px solid purple; */
+  display: flex;
+  align-items: center;
+}
+.fourGearWorkTimeline img {
+  max-height: 100%;
+  max-width: 10.46vw;
+}
+.fourGearWorkBorder {
+  width: 8.15vw;
+  height: 4px;
+  background-color: #b65e0c;
+}
+.fourGearWorkContent {
+  padding-top: 2rem;
+  width: 100%;
+  /* height: 8.611vh; */
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fourGearWorkContent p{
+  font-size: 1.8vw;
+  line-height: 2.1vw;
+}
+.fourGearWorkContentContainer {
+  width: 13.627vw;
+  /* height: 100%; */
+  /* border: 2px solid yellow; */
+  font-weight: 550;
+  font-size: 2.2vw;
+  line-height: 1.73vw;
+  text-align: center;
+}
+@media screen and (max-width: 523px) {
+  .fourGearworkContainer h1{
+    font-size: 2.364rem;
+    line-height: 2.861rem;
+  }
+  .fourGearWorkBorder {
+    width: 1.15vw;
+    transform: rotate(90deg);
+  }
+  .fourGearWorkTimeline {
+    flex-direction: column;
+    width:9.8rem;
+  }
+  .fourGearWorkTimeline img{
+    max-width:9.7rem;
+  }
+  .fourGearWorkInnerContainer{
+    display: flex;
+    width:23.7rem;
+    
+  }
+  .fourGearWorkContent{
+    flex-direction: column;
+    width:12.8rem;
+  }
+  .fourGearWorkContent p{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+    padding-bottom: 2.5rem;
+  }
+}

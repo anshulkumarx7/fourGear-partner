@@ -51,7 +51,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
-.fourGearJoinForm input[type="text"],.fourGearJoinForm [type="number"],.fourGearJoinForm [type="email"]{
+.fourGearJoinForm input[type="text"],.fourGearJoinForm input[type="password"],.fourGearJoinForm [type="number"],.fourGearJoinForm [type="email"]{
     width:100%;
     height:4.5rem;
     border-radius: 2.5vw;
@@ -173,7 +173,7 @@
         padding:0.7rem 1.7rem;
         font-size: 1rem;
     } 
-    .fourGearJoinForm input[type="text"],.fourGearJoinForm [type="number"],.fourGearJoinForm [type="email"]{
+    .fourGearJoinForm input[type="text"],.fourGearJoinForm input[type="password"],.fourGearJoinForm [type="number"],.fourGearJoinForm [type="email"]{
         height:3rem;
         font-size: 0.8rem;
     } 

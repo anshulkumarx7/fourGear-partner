@@ -19,6 +19,7 @@ function Join() {
     name: "",
     contactNumber: "",
     email: "",
+    password:"",
     address: "",
     aadharNumber: "",
     accountNumber: "",
@@ -92,6 +93,13 @@ function Join() {
             name="email"
             onChange={handleChange}
             value={details.email}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            value={details.password}
           />
           <input
             type="text"

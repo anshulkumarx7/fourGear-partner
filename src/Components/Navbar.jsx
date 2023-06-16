@@ -48,15 +48,15 @@ function Navbar() {
         <div className="fourGearNavbarContent" ref={navRef} >
           <NavLink to="/" onClick={hideNavbar}>Home</NavLink>
           <NavLink to="/about" onClick={hideNavbar}>About</NavLink>
-          <NavLink to="/service" onClick={hideNavbar}>Services</NavLink>
-          <NavLink to="/partner" onClick={hideNavbar}>Partner</NavLink>
+          {/* <NavLink to="/dashboard" onClick={hideNavbar}>Dashboard</NavLink> */}
+          {/* <NavLink to="/" onClick={hideNavbar}>Partn</NavLink> */}
           <NavLink to="/gallery" onClick={hideNavbar}>Gallery</NavLink>
           <NavLink to="/contact" onClick={hideNavbar}>Contact</NavLink>
           <button className="nav-btn close-button" onClick={showNavbar}>
             <img src={Cross}></img>
           </button>
         </div>
-        <NavLink className="userLogo" to="/signin">
+        <NavLink className="userLogo" to="/dashboard">
           <img src={UserLogo}></img>
         </NavLink>
         <button className="nav-btn open-button" onClick={showNavbar}>
