@@ -1,0 +1,136 @@
+.fourGearPartnerBillGeneration {
+  width: 82.09vw;
+  background-color: #ebebeb;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fourGearPartnerBillContainer {
+  width: 76.94vw;
+  border-radius: 1.04vw;
+  /* height: 70.55vh; */
+  background-color: #ffffff;
+  /* border: 2px solid black; */
+}
+.billDetails {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.billDetails h2 {
+  font-size: 1.25vw;
+}
+.billcolor-change {
+  font-size: 1.25vw;
+  color: #b65e0c;
+}
+.billTitle {
+  margin: 1rem 2rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+}
+.billTitle h2 {
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.billTitle img {
+  padding-right: 0.5rem;
+}
+.billgenerate {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.billgenerate h2 {
+  font-size: 1.25vw;
+}
+.billgenerate input {
+  height: 6.25vh;
+  background-color: #f2f2f2;
+  font-size: 1.25vw;
+  border: none;
+  text-indent: 1.5rem;
+  border-radius: 2.43vw;
+}
+.billgenerate input:nth-child(2) {
+  width: 36.04vw;
+}
+.partnerBillButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.partnerBillButtons button {
+  background-color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25vw;
+  margin: 0.5rem;
+}
+.sendBill {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sendBill h2 {
+  font-size: 1.25vw;
+}
+.sendBill button {
+  font-size: 1vw;
+  background-color: #b65e0c;
+  padding: 1rem 2rem;
+  border-radius: 2.3vw;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.billBars {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 1rem;
+  color: #b65e0c;
+}
+@media screen and (max-width: 550px) {
+  .fourGearPartnerBillGeneration {
+    width: 100vw;
+  }
+  .billgenerate input {
+    height: 2.5rem;
+    font-size: 0.7rem;
+  }
+  .billgenerate input:nth-child(2){
+    width:12rem;
+  }
+  .fourGearPartnerBillContainer {
+    margin: 2rem 0; 
+  }
+  .fourGearPartnerBillContainer h2 {
+    font-size: 0.8rem;
+  }
+  .billcolor-change {
+    font-size: 0.8rem;
+  }
+  .partnerBillButtons button {
+    font-size: 0.8rem;
+  }
+  .sendBill button {
+    font-size: 0.7rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .billTitle img {
+    width: 1.5rem;
+    height: 1rem;
+  }
+}

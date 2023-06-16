@@ -2,6 +2,7 @@ import React,{useRef} from 'react'
 import Order from '../Components/Order'
 import "../Styles/Dashboard.css";
 import Sidebar from '../Components/Sidebar';
+import Bill from '../Components/Bill';
 
 function Dashboard() {
   const barRef=useRef(null);
@@ -14,7 +15,8 @@ function Dashboard() {
   return (
     <div className='fourGearPartnerDashBoard'>
         <Sidebar reference={barRef} handleRemove={handleRemove}/>
-        <Order handleBars={handleBars} />
+        {/* <Order handleBars={handleBars} /> */}
+        <Bill handle={handleBars} />
     </div>
   )
 }
