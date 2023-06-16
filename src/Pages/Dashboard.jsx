@@ -7,16 +7,18 @@ import { Outlet } from 'react-router-dom';
 
 function Dashboard() {
   const barRef=useRef(null);
-  
+  const handleBars = () => {
+    barRef.current.classList.add("responsive_sidebar");
+  };
   const handleRemove =()=>{
     barRef.current.classList.remove("responsive_sidebar");
   }
   return (
     <div className='fourGearPartnerDashBoard'>
         <Sidebar reference={barRef} handleRemove={handleRemove}/>
-        {/* <Order handleBars={handleBars} /> */}
+        {/* <Order  /> */}
         {/* <Bill handle={handleBars} /> */}
-        <Outlet />
+        <Outlet handleBars={handleBars} />
     </div>
   )
 }

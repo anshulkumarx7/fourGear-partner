@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Components/Login";
@@ -18,10 +18,9 @@ import PaidOrders from "./Components/paidOrders";
 import Gallery from "./Pages/Gallery";
 import ContactP from "./Pages/ContactP";
 
-function App() {
-  const handleBars = () => {
-    barRef.current.classList.add("responsive_sidebar");
-  };
+function App(props) {
+  // const barRef=useRef(null);
+  
   return (
     <div>
       <BrowserRouter>
@@ -41,7 +40,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}>
             <Route
               path="/dashboard"
-              element={<Order handleBars={handleBars} />}
+              element={<Order handleBars={props.handleBars} />}
             >
               <Route path="/dashboard/" element={<AllOrder />} />
               <Route path="/dashboard/confirmed" element={<ConfirmedOrders />} />
