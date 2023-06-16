@@ -102,6 +102,34 @@ function Order(props) {
           <td>CX-3123</td>
           <td>Confirm</td>
         </tr>
+        <tr>
+          <td>#353</td>
+          <td>Anshul Kumar</td>
+          <td>3829105768</td>
+          <td>CX-3123</td>
+          <td>Confirm</td>
+        </tr>
+        <tr>
+          <td>#353</td>
+          <td>Anshul Kumar</td>
+          <td>3829105768</td>
+          <td>CX-3123</td>
+          <td>Confirm</td>
+        </tr>
+        <tr>
+          <td>#353</td>
+          <td>Anshul Kumar</td>
+          <td>3829105768</td>
+          <td>CX-3123</td>
+          <td>Confirm</td>
+        </tr>
+        <tr>
+          <td>#353</td>
+          <td>Anshul Kumar</td>
+          <td>3829105768</td>
+          <td>CX-3123</td>
+          <td>Confirm</td>
+        </tr>
         
       </table>
     </div>

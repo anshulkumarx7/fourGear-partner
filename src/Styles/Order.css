@@ -89,8 +89,8 @@
     padding-right:0.5rem;
 }
 .orderBars{
-  height:2vw;
-  width:2vw;
+  height:1.5rem;
+  width:1.5rem;
   margin-left:2rem;
   color:#b65e0c;
   display:none;
@@ -102,19 +102,35 @@
   .orderBars{
     display: unset;
   }
+  .fourGearPartnerOrderDate h2{
+    font-size:1rem;
+  }
+  .fourGearPartnerOrderDetails h2{
+    font-size: 0.8rem;
+  }
+  .fourGearPartnerOrderDetails h4{
+    font-size: 0.6rem;
+  }
   .fourGearPartnerOrderMenus a{
     padding:0.5rem;
+    font-size: 0.8rem;
   }
   .fourGearPartnerOrderDetailTable img{
-    width:1rem;
+    width:1.5rem;
     height:1rem;
+    padding-right:unset;
   }
   .fourGearPartnerOrderDetailTable th,.fourGearPartnerOrderDetailTable td{
-    padding:0.5rem;
+    padding:0.2rem;
+    padding-bottom: 1rem;
+    font-size:0.8rem;
+  }
+  .fourGearPartnerOrderDetailTable h2{
+    font-size:0.8rem;
   }
   .calender{
-    width:2rem;
-    height:1rem;
+    width:3rem;
+    height:1.5rem;
   }
 
   
