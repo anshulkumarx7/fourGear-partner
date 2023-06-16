@@ -109,9 +109,10 @@
   .billgenerate input {
     height: 2.5rem;
     font-size: 0.7rem;
+    width:8rem;
   }
   .billgenerate input:nth-child(2){
-    width:11rem;
+    width:13rem;
   }
   .fourGearPartnerBillContainer {
     margin: 2rem 0; 
