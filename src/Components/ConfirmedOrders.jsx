@@ -41,7 +41,7 @@ function ConfirmedOrders() {
           <td>Anshul Kumar</td>
           <td>3829105768</td>
           <td>CX-3123</td>
-          <td>Confirm</td>
+          <td><button>Generate Bill</button></td>
         </tr>
         <tr>
           <td>#353</td>

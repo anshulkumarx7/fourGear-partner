@@ -4,6 +4,9 @@ import "../Styles/Dashboard.css";
 import Sidebar from '../Components/Sidebar';
 import Bill from '../Components/Bill';
 import { Outlet } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
+import NavbarHeader from '../Components/NavbarHeader';
+
 
 function Dashboard() {
   const barRef=useRef(null);
@@ -14,12 +17,13 @@ function Dashboard() {
     barRef.current.classList.remove("responsive_sidebar");
   }
   return (
-    <div className='fourGearPartnerDashBoard'>
+      <div className='fourGearPartnerDashBoard'>
         <Sidebar reference={barRef} handleRemove={handleRemove}/>
         {/* <Order  /> */}
         {/* <Bill handle={handleBars} /> */}
         <Outlet handleBars={handleBars} />
     </div>
+    
   )
 }
 

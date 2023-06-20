@@ -17,27 +17,19 @@ import PendingOrders from "./Components/pendingOrders";
 import PaidOrders from "./Components/paidOrders";
 import Gallery from "./Pages/Gallery";
 import ContactP from "./Pages/ContactP";
+import Signin from "./Pages/Signin";
 
 function App(props) {
-  // const barRef=useRef(null);
-  
   return (
     <div>
       <BrowserRouter>
-        {/* <Navbar />
-      <Login />
-      <Contact />
-      <Join />
-      <Steps />
-      <MechanicsDetails /> */}
-        {/* <Sidebar /> */}
-        {/* <Dashboard /> */}
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<ContactP />} />
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/signin" element={<Signin />}/>
+          <Route path="/dashboard" element={<Dashboard />} >
             <Route
               path="/dashboard"
               element={<Order handleBars={props.handleBars} />}
