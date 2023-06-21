@@ -18,17 +18,19 @@ import PaidOrders from "./Components/paidOrders";
 import Gallery from "./Pages/Gallery";
 import ContactP from "./Pages/ContactP";
 import Signin from "./Pages/Signin";
-
+import { AuthProvider } from "./Context/AuthContext";
 function App(props) {
   return (
     <div>
       <BrowserRouter>
+       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<ContactP />} />
           <Route path="/signin" element={<Signin />}/>
+          <Route path="/mechanic" element={<MechanicsDetails />} />
           <Route path="/dashboard" element={<Dashboard />} >
             <Route
               path="/dashboard"
@@ -42,6 +44,7 @@ function App(props) {
           </Route>
         </Routes>
         <Footer />
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );

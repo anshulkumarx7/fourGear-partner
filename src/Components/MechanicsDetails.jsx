@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "../Styles/MechanicsDetails.css";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosAddCircle, IoIosRemoveCircle } from "react-icons/io";
+import mechanicsValidation from "../schemas/mechanicsValidtion";
+import { CgDanger } from "react-icons/cg";
+
 function MechanicsDetails() {
   const [mechanicDetails, setMechanicsDetails] = useState([
     {
@@ -11,6 +14,8 @@ function MechanicsDetails() {
       aadharNumber: "",
     },
   ]);
+  // const [errors, setErrors] = useState({});
+  // const [loading, setLoading] = useState(false);
   const handleAddMore = () => {
     setMechanicsDetails([
       ...mechanicDetails,
@@ -22,53 +27,128 @@ function MechanicsDetails() {
     const list = [...mechanicDetails];
     list[index][name] = value;
     setMechanicsDetails(list);
+    // setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
   const handleRemove = (index) => {
     const list = [...mechanicDetails];
     list.splice(index, 1);
     setMechanicsDetails(list);
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    // try {
+    //   setLoading(true);
+    //   // await mechanicsValidation.validate(mechanicDetails, {
+    //   //   abortEarly: false,
+    //   // });
+    //   setLoading(false);
+    //   // login(config);
+    // } catch (validationError) {
+    //   setLoading(false);
+    //   console.log(validationError);
+    //   // const newErrors ={};
+    //   // validationError.inner.forEach((error) => {
+    //   //   newErrors[error.path] = error.message;
+    //   // });
+    //   // setErrors(newErrors);
+    // }  
     console.log(mechanicDetails);
   };
+  // const handleBlur = (event,index) => {
+  //   const { name } = event.target;
+  //   try {
+  //     mechanicsValidation.validateSyncAt(name, mechanicDetails[index]);
+  //     // setErrors((prevErrors) => ({
+  //     //   ...prevErrors,
+  //     //   [index]: {
+  //     //     ...prevErrors[index],
+  //     //     [name]: undefined,
+  //     //   },
+  //     // }));
+  //   } catch (validationError) {
+  //     setErrors((prevErrors) => ({
+  //       ...prevErrors,
+  //       [index]: {
+  //         ...prevErrors[index],
+  //         [name]:validationError.message
+  //       }
+  //     }));
+  //   }
+  // };
+  // console.log(errors);
   return (
     <div className="fourGearMechanics">
       <h1>Enter all the mechanics details</h1>
       <div className="fourGearMechanicsContainer">
         <h1>Mechanics Details</h1>
         <div className="fourGearMechanicsSubContainer">
-          {mechanicDetails.map((data, index) => {
+          {mechanicDetails.map((data,index) => {
             return (
               <div className="fourGearMechanicsForm" key={index}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  onChange={(event) => handleChange(event, index)}
-                  value={mechanicDetails[index].name}
-                />
-                <input
-                  type="text"
-                  name="contactNumber"
-                  placeholder="Contact Number"
-                  onChange={(event) => handleChange(event, index)}
-                  value={mechanicDetails[index].contactNumber}
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Address"
-                  onChange={(event) => handleChange(event, index)}
-                  value={mechanicDetails[index].address}
-                />
-                <input
-                  type="text"
-                  name="aadharNumber"
-                  placeholder="Aadhar Number"
-                  onChange={(event) => handleChange(event, index)}
-                  value={mechanicDetails[index].aadharNumber}
-                />
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    onChange={(event) => handleChange(event,index)}
+                    // onBlur={(event) => handleBlur(event,index)}
+                    value={mechanicDetails[index].name}
+                  />
+                  {/* {(errors[index]) && (
+                    <div className="mechanicsErrors">
+                      <CgDanger className="cgDanger" />
+                      {errors[index].name}
+                    </div>
+                  )} */}
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="contactNumber"
+                    placeholder="Contact Number"
+                    onChange={(event) => handleChange(event, index)}
+                    // onBlur={(event) => handleBlur(event, index)}
+                    value={mechanicDetails[index].contactNumber}
+                  />
+                  {/* {errors[index] && (
+                    <div className="mechanicsErrors">
+                      <CgDanger className="cgDanger" />
+                      {errors[index]}
+                    </div>
+                  )} */}
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                    onChange={(event) => handleChange(event, index)}
+                    // onBlur={(event) => handleBlur(event, index)}
+                    value={mechanicDetails[index].address}
+                  />
+                  {/* {errors[index] && (
+                    <div className="mechanicsErrors">
+                      <CgDanger className="cgDanger" />
+                      {errors[index]}
+                    </div>
+                  )} */}
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="aadharNumber"
+                    placeholder="Aadhar Number"
+                    onChange={(event) => handleChange(event, index)}
+                    // onBlur={(event) => handleBlur(event, index)}
+                    value={mechanicDetails[index].aadharNumber}
+                  />
+                  {/* {errors[index] && (
+                    <div className="mechanicsErrors">
+                      <CgDanger className="cgDanger" />
+                      {errors[index]}
+                    </div>
+                  )} */}
+                </div>
               </div>
             );
           })}
@@ -89,7 +169,9 @@ function MechanicsDetails() {
           </div>
         </div>
       </div>
-      <button className="mechanicSubmitButton" onClick={handleSubmit}>Submit</button>
+      <button className="mechanicSubmitButton" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }

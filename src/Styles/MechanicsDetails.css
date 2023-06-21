@@ -1,167 +1,183 @@
-.fourGearMechanics{
-    width:100vw;
-    max-width:100%;
+.fourGearMechanics {
+  width: 100vw;
+  max-width: 100%;
+  height: 100%;
+  background: url(../assets/mechanicspagebg.svg) center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fourGearMechanics h1 {
+  font-size: 2.5vw;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3rem;
+}
+.fourGearMechanicsContainer {
+  width: 91.527vw;
+  background-color: #ffffff;
+  border-radius: 2.08vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.fourGearMechanicsContainer h1 {
+  font-size: 2.4vw;
+  color: #b65e0c;
+  text-align: center;
+  font-weight: 700;
+  opacity: 1;
+  margin: 1rem 0;
+}
+.fourGearMechanicsSubContainer {
+  width: 85.06vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 4rem 0;
+}
+.fourGearMechanicsForm {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+.fourGearMechanicsSubContainer input {
+  width: 18.611vw;
+  border-radius: 3.6rem;
+  background: #f2f2f2;
+  height: 6.25vh;
+  opacity: 1;
+  font-size: 1vw;
+  text-indent: 1.5rem;
+  border: none;
+}
+.fourGearMechanicsSubContainer button {
+  font-size: 1.2vw;
+  border: none;
+  padding: 0;
+  background-color: #ffffff;
+  font-weight: 700;
+  color: #b65e0c;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.mechanicSubmitButton {
+  padding: 1rem 3rem;
+  background-color: #b65e0c;
+  font-size: 1vw;
+  border: none;
+  border-radius: 1.1rem;
+  color: #ffffff;
+  margin: 6rem 0;
+  cursor: pointer;
+}
+.exceededMechanicMessage {
+  font-size: 1vw;
+  color: #b65e0c;
+  text-align: center;
+  margin: 1rem 0;
+}
+.rxcross2 {
+  font-size: 1.5vw;
+  color: #b65e0c;
+  cursor: pointer;
+}
+.mechanicsRemoveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.8rem;
+}
+.fourGearMechanicsDetailsButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mechanicsErrors {
+  color: red;
+  /* padding-left: 2.3rem; */
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.cgDanger {
+  color: red;
+  font-size: 1rem;
+  margin-right: 0.3rem;
+}
+@media (min-width: 550px) and (max-width: 900px) {
+  .fourGearMechanicsForm {
+    flex-direction: column;
+    align-items: center;
+  }
+  .fourGearMechanicsContainer {
+    width: 40rem;
+  }
+  .fourGearMechanicsSubContainer {
+    width: 28rem;
+  }
+  .fourGearMechanicsSubContainer input {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  .rxcross2 {
+    font-size: 1.2rem;
+  }
+  .fourGearMechanicsSubContainer button {
+    font-size: 1.2rem;
+  }
+  .fourGearMechanics {
     height: 100%;
-    background:url(../assets/mechanicspagebg.svg) center/cover no-repeat;
-    display: flex;
+  }
+  .mechanicSubmitButton {
+    margin-bottom: 3rem;
+  }
+  .mechanicSubmitButton {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .fourGearMechanicsForm {
     flex-direction: column;
     align-items: center;
-}
-.fourGearMechanics h1{
-    font-size: 2.5vw;
-    color:#ffffff;
-    font-weight: 700;
-    text-align: center;
-    margin-top:3rem;
-}
-.fourGearMechanicsContainer{
-    width:91.527vw;
-    background-color: #ffffff;
-    border-radius:2.08vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:3rem;
-}
-.fourGearMechanicsContainer h1{
-    font-size: 2.4vw;
-    color:#B65E0C;
-    text-align: center;
-    font-weight: 700;
-    opacity: 1;
-    margin: 1rem 0;
-}
-.fourGearMechanicsSubContainer{
-    width:85.06vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 4rem 0;
-}
-.fourGearMechanicsForm{
-    display: flex;
-    justify-content: space-between;
-    margin:1rem 0;
-}
-.fourGearMechanicsSubContainer input{
-    width:18.611vw;
-    border-radius: 3.6rem;
-    background:#F2F2F2;
-    height:6.25vh;
-    opacity: 1;
-    font-size: 1vw;
-    text-indent: 1.5rem;
-    border: none;
-}
-.fourGearMechanicsSubContainer button{
-    font-size:1.2vw;
-    border: none;
-    padding: 0;
-    background-color: #ffffff;
-    font-weight: 700;
-    color:#B65E0C;
-    margin-top:2rem;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-.mechanicSubmitButton{
-    padding:1rem 3rem;
-    background-color: #B65E0C;
-    font-size:1vw;
-    border: none;
-    border-radius: 1.1rem;
-    color:#ffffff;
-    margin:6rem 0;
-    cursor: pointer;
-    
-}
-.exceededMechanicMessage{
-    font-size: 1vw;
-    color:#B65E0C;
-    text-align: center;
-    margin:1rem 0;
-}
-.rxcross2{
-    font-size:1.5vw;
-    color:#B65E0C;
-    cursor: pointer;
-}
-.mechanicsRemoveButton{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin-left:1.8rem;
-}
-.fourGearMechanicsDetailsButtons{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-@media (min-width:550px) and (max-width:900px){
-    .fourGearMechanicsForm{
-        flex-direction: column;
-        align-items:center;
-    }
-    .fourGearMechanicsContainer{
-        width:40rem;
-    }
-    .fourGearMechanicsSubContainer{
-        width:28rem;
-    }
-    .fourGearMechanicsSubContainer input{
-        margin:0.5rem 0;
-        width:100%;
-    }
-    .rxcross2{
-        font-size:1.2rem;
-    }
-    .fourGearMechanicsSubContainer button{
-        font-size: 1.2rem;
-    }
-    .fourGearMechanics{
-        height:100%;
-    }
-    .mechanicSubmitButton{
-        margin-bottom: 3rem;
-    }
-    .mechanicSubmitButton{
-        font-size: 1rem;
-    }
-    
-}
-@media screen and (max-width:550px) {
-    .fourGearMechanicsForm{
-        flex-direction: column;
-        align-items:center;
-    }
-    .fourGearMechanicsContainer{
-        width:29rem;
-    }
-    .fourGearMechanicsSubContainer{
-        width:23rem;
-    }
-    .fourGearMechanicsSubContainer input{
-        margin:0.5rem 0;
-        width:100%;
-        height:3rem;
-        font-size: 0.8rem;
-    }
-    .rxcross2{
-        font-size:1rem;
-    }
-    .fourGearMechanicsSubContainer button{
-        font-size: 1rem;
-    }
-    .fourGearMechanics{
-        height:100%;
-    }
-    .mechanicSubmitButton{
-        margin-bottom: 3rem;
-    }
-    .mechanicSubmitButton{
-        font-size: 1rem;
-    }
-    
+  }
+  .fourGearMechanicsContainer {
+    width: 29rem;
+  }
+  .fourGearMechanicsSubContainer {
+    width: 23rem;
+  }
+  .fourGearMechanicsSubContainer input {
+    margin: 0.5rem 0;
+    width: 100%;
+    height: 3rem;
+    font-size: 0.8rem;
+  }
+  .rxcross2 {
+    font-size: 1rem;
+  }
+  .fourGearMechanicsSubContainer button {
+    font-size: 1rem;
+  }
+  .fourGearMechanics {
+    height: 100%;
+  }
+  .mechanicSubmitButton {
+    margin-bottom: 3rem;
+  }
+  .mechanicSubmitButton {
+    font-size: 1rem;
+  }
+  .cgDanger {
+    font-size: 1rem;
+  }
+  .loginErrors {
+    font-size: 1rem;
+  }
 }

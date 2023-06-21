@@ -22,18 +22,23 @@
 }
 .fourGearPartnerLogout {
   margin-top: 13.888vw;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 .fourGearPartnerLogout h2 {
   font-size: 1.2vw;
   font-weight: 500;
 }
-.fourGearPartnerLogout a {
+.fourGearPartnerLogout button {
   text-decoration: none;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  border:none;
+  background-color: #ffffff;
 }
 .sidebarCrossButton {
   height: 4rem;
