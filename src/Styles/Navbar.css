@@ -80,6 +80,9 @@ a.active{
 .nav-btn{
   display:none;
 }
+.responsivenavlinkDashboard{
+  display: none;
+}
 @media screen and (max-width:700px) {
   .fourGearNavbarContent{
     position: fixed;
@@ -153,5 +156,8 @@ a.active{
   }
   .fourGearNavbarHeader{
     padding:1% 1%;
+  }
+  .responsivenavlinkDashboard{
+    display: unset;
   }
 }

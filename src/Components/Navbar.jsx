@@ -31,6 +31,7 @@ function Navbar() {
           {/* <NavLink to="/" onClick={hideNavbar}>Partn</NavLink> */}
           <NavLink to="/gallery" onClick={hideNavbar}>Gallery</NavLink>
           <NavLink to="/contact" onClick={hideNavbar}>Contact</NavLink>
+          <NavLink className="responsivenavlinkDashboard" to={isLoggedIn ? "/dashboard":"/signin"} onClick={hideNavbar}>{isLoggedIn ? "Dashboard" : "Login"}</NavLink>
           <button className="nav-btn close-button" onClick={showNavbar}>
             <img src={Cross}></img>
           </button>

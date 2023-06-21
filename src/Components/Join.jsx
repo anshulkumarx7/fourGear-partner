@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import "../Styles/Join.css";
 import Image1 from "../assets/joinfourGear.svg";
 import { FiUpload } from "react-icons/fi";
@@ -28,6 +28,22 @@ function Join() {
     ifscCode: "",
     numberofMechanics: "",
   });
+  const [currLocation, setCurrLocation] = useState({
+    latitude: "",
+    longitude: "",
+  });
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setCurrLocation({
+        latitude: latitude,
+        longitude: longitude,
+      });
+    });
+  };
+  useEffect(() => {
+    getLocation();
+  }, []);
   const [ownerImage, setOwnerImage] = useState("");
   const [shImage, setShopImage] = useState("");
   const image1Ref = useRef(null);
@@ -67,6 +83,7 @@ function Join() {
 
   console.log(ownerImage);
   //handleBlur
+  
   const handleBlur = (event) => {
     const { name } = event.target;
     try {
