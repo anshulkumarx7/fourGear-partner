@@ -1,6 +1,6 @@
 import *  as Yup from 'yup';
 
-const joinValidation =Yup.object().shape({
+const detailsValidation =Yup.object().shape({
     name:Yup.string().min(2,'Name should be more than 2 Characters').max(20).required('Please enter your Name'),
     contactNumber:Yup.string().min(10,'Invalid Contact number').max(10)
     .matches(/^\+?[1-9]\d{1,14}$/, 'Invalid contact number')
@@ -15,6 +15,7 @@ const joinValidation =Yup.object().shape({
     aadharNumber:Yup.string().matches(/^\d{12}$/, "Invalid Aadhaar number").required('Please enter your Aadhar Number'),
     accountNumber:Yup.string().min(10,'Invalid account number').max(25).required('Please enter your account number'),
     ifscCode:Yup.string().min(10,'Invalid IFSC Code').max(25).required('Please enter your IFSC code'),
+    numberofMechanics:Yup.string().max(2).required('Please enter the no.of mechanics'),
     shopOwnerImage:Yup.mixed()
     .test('fileType', 'Invalid file format', (value) => {
       if (value) {
@@ -29,8 +30,8 @@ const joinValidation =Yup.object().shape({
         return value.size <= maxSizeInBytes;
       }
       return true;
-    })
-    .required('Shop Owner Image is required'),
+    }),
+    // .required('Shop Owner Image is required'),
     shopImage:Yup.mixed()
     .test('fileType', 'Invalid file format', (value) => {
       if (value) {
@@ -45,9 +46,9 @@ const joinValidation =Yup.object().shape({
         return value.size <= maxSizeInBytes;
       }
       return true;
-    })
-    .required('Shop Image is required'),
-    numberofMechanics:Yup.string().max(2).required('Please enter the no.of mechanics'),
+    }),
+    // // .required('Shop Image is required'), 
+
 });
 
-export default joinValidation;
+export default detailsValidation;

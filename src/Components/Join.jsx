@@ -1,37 +1,32 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import "../Styles/Join.css";
 import Image1 from "../assets/joinfourGear.svg";
 import { FiUpload } from "react-icons/fi";
-import joinValidation from "../schemas/joinValidation"
+import detailsValidation from "../schemas/joinValidation";
+import ownerImageValidations from "../schemas/ownerImageValidations";
 import { CgDanger } from "react-icons/cg";
-function convertToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
-}
+import { JoinContext } from "../Context/JoinContext";
+import { useNavigate } from "react-router-dom";
+
+
 function Join() {
-  const [details, setDetails] = useState({
-    name: "",
-    contactNumber: "",
-    email: "",
-    password: "",
-    address: "",
-    aadharNumber: "",
-    accountNumber: "",
-    ifscCode: "",
-    numberofMechanics: "",
-  });
-  const [currLocation, setCurrLocation] = useState({
-    latitude: "",
-    longitude: "",
-  });
+  const navigate = useNavigate();
+  const navigation = () => {
+    navigate("/mechanics");
+  };
+  const [imageError,setImageError]=useState(false);
+  const {
+    details,
+    setDetails,
+    currLocation,
+    setCurrLocation,
+    handleImage1Uplaod,
+    handleImage2Uplaod,
+    ownerImage,
+    shImage,
+    setOwnerImage,
+    setShopImage,
+  } = useContext(JoinContext);
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
@@ -44,11 +39,12 @@ function Join() {
   useEffect(() => {
     getLocation();
   }, []);
-  const [ownerImage, setOwnerImage] = useState("");
-  const [shImage, setShopImage] = useState("");
+  // const [ownerImage, setOwnerImage] = useState("");
+  // const [shImage, setShopImage] = useState("");
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
-  const [errors, setErrors] = useState({});
+  const [detailsErrors, setDetailsErrors] = useState({});
+  const [ownerImageErrors, setOwnerImageErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
   //handleChange
@@ -58,7 +54,8 @@ function Join() {
       ...prevValue,
       [name]: value,
     }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    setDetailsErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    setImageError(false);
   };
   const handleImage1Click = () => {
     image1Ref.current.click();
@@ -66,36 +63,19 @@ function Join() {
   const handleImage2Click = () => {
     image2Ref.current.click();
   };
-  const handleImage1Uplaod = async (event) => {
-    const file = event.target.files[0];
-    const base64 = await convertToBase64(file);
-    setOwnerImage(base64);
-  };
-  const handleImage2Uplaod = async (event) => {
-    const file = event.target.files[0];
-    const base64 = await convertToBase64(file);
-    setShopImage(base64);
-  };
-  console.log("Shop image")
-
-  console.log(shImage);
-  console.log("image")
-
-  console.log(ownerImage);
   //handleBlur
-  
-  const handleBlur = (event) => {
+  const handleDetailsBlur = (event) => {
     const { name } = event.target;
     try {
       if (name in details) {
-        joinValidation.validateSyncAt(name, details);
+        detailsValidation.validateSyncAt(name, details);
       } else if (name in ownerImage) {
         joinValidation.validateSyncAt(name, ownerImage);
-      } else if (name in shopImage) {
-        joinValidation.validateSyncAt(name, shopImage);
+      } else if (name in shImage) {
+        joinValidation.validateSyncAt(name, shImage);
       }
     } catch (validationError) {
-      setErrors((prevErrors) => ({
+      setDetailsErrors((prevErrors) => ({
         ...prevErrors,
         [name]: validationError.message,
       }));
@@ -103,17 +83,23 @@ function Join() {
   };
   //handleSubmit
   const handleSubmit = async (e) => {
+    if(ownerImage.length === 0 || shImage.length === 0){
+      setImageError(true);
+    }
     e.preventDefault();
     try {
-      const formData = {
-        details,
-        ownerImage,
-        shImage
-      };
       setLoading(true);
-      await joinValidation.validate(formData, { abortEarly: false });
+      await detailsValidation.validate(details, { abortEarly: false });
       setLoading(false);
-      // login(config);
+      console.log(details);
+      console.log("shopImage");
+      console.log(shImage);
+      console.log("ownerImage");
+      console.log(ownerImage);
+      console.log(currLocation);
+      // navigation();
+      // setSubmit(true);
+      navigate("/mechanics");
     } catch (validationError) {
       setLoading(false);
       console.log(validationError);
@@ -121,11 +107,9 @@ function Join() {
       validationError.inner.forEach((error) => {
         newErrors[error.path] = error.message;
       });
-      setErrors(newErrors);
+      setDetailsErrors(newErrors);
     }
   };
-  console.log("errors")
-  console.log(errors);
   return (
     <div className="fourGearJoin">
       <div className="fourGearJoinLeftContainer">
@@ -147,175 +131,193 @@ function Join() {
             name="name"
             autoComplete="off"
             onChange={handleChange}
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             value={details.name}
           />
-          {errors.name && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.name}
-                </div>
-              )}
+          {detailsErrors.name && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.name}
+            </div>
+          )}
           <input
             type="text"
             placeholder="Contact Number"
             name="contactNumber"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={handleChange}
             value={details.contactNumber}
           />
-          {errors.contactNumber && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.contactNumber}
-                </div>
-              )}
+          {detailsErrors.contactNumber && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.contactNumber}
+            </div>
+          )}
           <input
             type="email"
             placeholder="Email (optional)"
             name="email"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={handleChange}
             value={details.email}
           />
-          {errors.email && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.email}
-                </div>
-              )}
+          {detailsErrors.email && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.email}
+            </div>
+          )}
           <input
             type="password"
             placeholder="Password"
             name="password"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={handleChange}
             value={details.password}
           />
-          {errors.password && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.password}
-                </div>
-              )}
+          {detailsErrors.password && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.password}
+            </div>
+          )}
           <input
             type="text"
             placeholder="Address"
             name="address"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={handleChange}
             value={details.address}
           />
-          {errors.address && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.address}
-                </div>
-              )}
+          {detailsErrors.address && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.address}
+            </div>
+          )}
           <input
             type="text"
             placeholder="Aadhar Number"
             name="aadharNumber"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             value={details.aadharNumber}
             onChange={handleChange}
           />
-          {errors.aadharNumber && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.aadharNumber}
-                </div>
-              )}
+          {detailsErrors.aadharNumber && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.aadharNumber}
+            </div>
+          )}
           <input
             type="text"
             placeholder="Account Number"
             name="accountNumber"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             value={details.accountNumber}
             onChange={handleChange}
           />
-          {errors.accountNumber && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.accountNumber}
-                </div>
-              )}
+          {detailsErrors.accountNumber && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.accountNumber}
+            </div>
+          )}
           <input
             type="text"
             placeholder="IFSC Code"
             name="ifscCode"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             value={details.ifscCode}
             onChange={handleChange}
           />
-          {errors.ifscCode && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.ifscCode}
-                </div>
-              )}
+          {detailsErrors.ifscCode && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.ifscCode}
+            </div>
+          )}
           <input
             type="file"
             name="shopOwnerImage"
             accept=".jpeg,.png,.jpg"
             ref={image1Ref}
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={(e) => handleImage1Uplaod(e)}
             // value={ownerImage}
           ></input>
           <div className="inputFile" onClick={handleImage1Click}>
-            <h4>{ownerImage.length===0 ? "Shop Owner photo" : "Image Uploaded"}</h4>
+            <h4>
+              {ownerImage.length === 0 ? "Shop Owner photo" : "Image Uploaded"}
+            </h4>
             <FiUpload className="upload" />
           </div>
-          {errors.shopOwnerImage && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.shopOwnerImage}
-                </div>
-              )}
+          {detailsErrors.shopOwnerImage && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.shopOwnerImage}
+            </div>
+          )}
+          {(imageError && !detailsErrors.shopOwnerImage) && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+               Image Required
+            </div>
+          )}
+          
+          {/* {(ownerImage.length === 0 && !errors.shopOwnerImage) &&  } */}
           <input
             type="file"
             ref={image2Ref}
             accept=".jpeg,.png,.jpg"
             name="shopImage"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             onChange={(e) => handleImage2Uplaod(e)}
             // value={shImage}
           ></input>
           <div className="inputFile" onClick={handleImage2Click}>
-            <h4>{shImage.length===0 ? "Shop Photo" : "Image Uploaded"}</h4>
+            <h4>{shImage.length === 0 ? "Shop Photo" : "Image Uploaded"}</h4>
             <FiUpload className="upload" />
           </div>
-          {errors.shopImage && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.shopImage}
-                </div>
-              )}
+          {detailsErrors.shopImage && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.shopImage}
+            </div>
+          )}
+          {(imageError && !detailsErrors.shopOwnerImage) && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+               Image Required
+            </div>
+          )}
           <input
             type="text"
             placeholder="Number of mechanics"
             name="numberofMechanics"
             autoComplete="off"
-            onBlur={handleBlur}
+            onBlur={handleDetailsBlur}
             value={details.numberofMechanics}
             onChange={handleChange}
           />
-          {errors.numberofMechanics && (
-                <div className="loginErrors">
-                  <CgDanger className="cgDanger" />
-                  {errors.numberofMechanics}
-                </div>
-              )}
+          {detailsErrors.numberofMechanics && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.numberofMechanics}
+            </div>
+          )}
         </form>
-        <button className="fourGearJoinButton" onClick={handleSubmit}>Enter mechanics details</button>
+        <button className="fourGearJoinButton" onClick={handleSubmit}>
+          Enter mechanics details
+        </button>
       </div>
     </div>
   );
