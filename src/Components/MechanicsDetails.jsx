@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "../Styles/MechanicsDetails.css";
-import { RxCross2 } from "react-icons/rx";
 import { IoIosAddCircle, IoIosRemoveCircle } from "react-icons/io";
 import mechanicsValidation from "../schemas/mechanicsValidtion";
 import { CgDanger } from "react-icons/cg";
+import { JoinContext } from "../Context/JoinContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function MechanicsDetails() {
+  const {
+    details,
+    setDetails,
+    currLocation,
+    ownerImage,
+    shImage,
+  } = useContext(JoinContext);
+  const navigate =useNavigate();
+  
   const [mechanicDetails, setMechanicsDetails] = useState([
     {
       name: "",
@@ -15,7 +26,8 @@ function MechanicsDetails() {
     },
   ]);
   // const [errors, setErrors] = useState({});
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  
   const handleAddMore = () => {
     setMechanicsDetails([
       ...mechanicDetails,
@@ -34,24 +46,50 @@ function MechanicsDetails() {
     list.splice(index, 1);
     setMechanicsDetails(list);
   };
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:5000/api/partners/register',
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    data : details
+  };
+  const partnerRegistration = async(config)=>{
+    try{
+      setLoading(true);
+      setDetails((prevDetails)=>({
+        ...prevDetails,
+        "map":currLocation,
+        "ownerPic":ownerImage,
+        "shopPic":shImage,
+        "mechanicDetails":mechanicDetails
+      }))
+      const response = await axios.request(config);
+      navigate("/signin");
+      console.log(JSON.stringify(response.data));
+      setLoading(false);
+    }catch(error){
+      console.log(error);
+    }
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    //   setLoading(true);
-    //   // await mechanicsValidation.validate(mechanicDetails, {
-    //   //   abortEarly: false,
-    //   // });
-    //   setLoading(false);
-    //   // login(config);
-    // } catch (validationError) {
-    //   setLoading(false);
-    //   console.log(validationError);
-    //   // const newErrors ={};
-    //   // validationError.inner.forEach((error) => {
-    //   //   newErrors[error.path] = error.message;
-    //   // });
-    //   // setErrors(newErrors);
-    // }  
+    try {
+      setLoading(true);
+      
+      // await mechanicsValidation.validate(mechanicDetails, {
+      //   abortEarly: false,
+      // });
+      // login(config);
+      partnerRegistration(config);
+      console.log(details);
+      // navigate("/");
+      setLoading(false);
+    } catch (validationError) {
+      setLoading(false);
+      console.log(validationError);
+    }  
     console.log(mechanicDetails);
   };
   // const handleBlur = (event,index) => {

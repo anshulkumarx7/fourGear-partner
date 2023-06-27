@@ -16,10 +16,12 @@ function convertToBase64(file) {
 export const JoinProvider = ({ children }) => {
   const [details, setDetails] = useState({
     name: "",
-    contactNumber: "",
+    phone: "",
     email: "",
     password: "",
+    shopName:"",
     address: "",
+    city:"",
     aadharNumber: "",
     accountNumber: "",
     ifscCode: "",

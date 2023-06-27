@@ -8,13 +8,10 @@ import { CgDanger } from "react-icons/cg";
 import { JoinContext } from "../Context/JoinContext";
 import { useNavigate } from "react-router-dom";
 
-
 function Join() {
   const navigate = useNavigate();
-  const navigation = () => {
-    navigate("/mechanics");
-  };
-  const [imageError,setImageError]=useState(false);
+
+  const [imageError, setImageError] = useState(false);
   const {
     details,
     setDetails,
@@ -83,20 +80,20 @@ function Join() {
   };
   //handleSubmit
   const handleSubmit = async (e) => {
-    if(ownerImage.length === 0 || shImage.length === 0){
+    e.preventDefault();
+    if (ownerImage.length === 0 || shImage.length === 0) {
       setImageError(true);
     }
-    e.preventDefault();
     try {
       setLoading(true);
       await detailsValidation.validate(details, { abortEarly: false });
       setLoading(false);
-      console.log(details);
-      console.log("shopImage");
-      console.log(shImage);
-      console.log("ownerImage");
-      console.log(ownerImage);
-      console.log(currLocation);
+      // console.log(details);
+      // console.log("shopImage");
+      // console.log(shImage);
+      // console.log("ownerImage");
+      // console.log(ownerImage);
+      // console.log(currLocation);
       // navigation();
       // setSubmit(true);
       navigate("/mechanics");
@@ -143,21 +140,21 @@ function Join() {
           <input
             type="text"
             placeholder="Contact Number"
-            name="contactNumber"
+            name="phone"
             autoComplete="off"
             onBlur={handleDetailsBlur}
             onChange={handleChange}
-            value={details.contactNumber}
+            value={details.phone}
           />
-          {detailsErrors.contactNumber && (
+          {detailsErrors.phone && (
             <div className="loginErrors">
               <CgDanger className="cgDanger" />
-              {detailsErrors.contactNumber}
+              {detailsErrors.phone}
             </div>
           )}
           <input
             type="email"
-            placeholder="Email (optional)"
+            placeholder="Email"
             name="email"
             autoComplete="off"
             onBlur={handleDetailsBlur}
@@ -187,6 +184,21 @@ function Join() {
           )}
           <input
             type="text"
+            placeholder="Shop Name"
+            name="shopName"
+            autoComplete="off"
+            onBlur={handleDetailsBlur}
+            onChange={handleChange}
+            value={details.shopName}
+          />
+          {detailsErrors.shopName && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.shopName}
+            </div>
+          )}
+          <input
+            type="text"
             placeholder="Address"
             name="address"
             autoComplete="off"
@@ -198,6 +210,21 @@ function Join() {
             <div className="loginErrors">
               <CgDanger className="cgDanger" />
               {detailsErrors.address}
+            </div>
+          )}
+          <select
+            name="city"
+            onBlur={handleDetailsBlur}
+            onChange={handleChange}
+            value={details.city}
+          >
+            <option value="">City</option>
+            <option value="Bhubaneshwar">Bhubaneshwar</option>
+          </select>
+          {detailsErrors.city && (
+            <div className="loginErrors">
+              <CgDanger className="cgDanger" />
+              {detailsErrors.city}
             </div>
           )}
           <input
@@ -266,13 +293,13 @@ function Join() {
               {detailsErrors.shopOwnerImage}
             </div>
           )}
-          {(imageError && !detailsErrors.shopOwnerImage) && (
+          {imageError && !detailsErrors.shopOwnerImage && (
             <div className="loginErrors">
               <CgDanger className="cgDanger" />
-               Image Required
+              Image Required
             </div>
           )}
-          
+
           {/* {(ownerImage.length === 0 && !errors.shopOwnerImage) &&  } */}
           <input
             type="file"
@@ -293,10 +320,10 @@ function Join() {
               {detailsErrors.shopImage}
             </div>
           )}
-          {(imageError && !detailsErrors.shopOwnerImage) && (
+          {imageError && !detailsErrors.shopOwnerImage && (
             <div className="loginErrors">
               <CgDanger className="cgDanger" />
-               Image Required
+              Image Required
             </div>
           )}
           <input
