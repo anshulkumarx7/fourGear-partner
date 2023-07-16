@@ -1,4 +1,70 @@
-.fourGearPartnerDashBoard{
-    display: flex;
-    height:100%;
+.fourGearDashboard {
+  width: 100vw;
+  max-width: 100%;
+  padding:5rem 0;
+  display: flex;
+  justify-content: center;
+  background: #ebebeb;
 }
+.fourGearDashboardContainer {
+  width: 87.366vw;
+}
+.fourGearDashboardHeader {
+  height: 7.6rem;
+  width: 100%;
+  display: flex;
+}
+.fourGearDashboardShopDetails {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.fourGearDashboardCircle {
+  width: 7.6rem;
+  height: 7.6rem;
+  background-color: #b65e0c;
+  border-radius: 50%;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fourGearDashboardDetails h2 {
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.fourGearDashboardDetails h5 {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.fourGearLogout {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fourGearLogout h2 {
+  margin-left: 0.7rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.fourGearRecentServicesTitle {
+  margin-left: 0.7rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #b65e0c;
+}
+.fourGearDashboardService {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+/* card */

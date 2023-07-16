@@ -7,7 +7,6 @@ import Navbar from "../Components/Navbar";
 function About() {
   return (
     <div>
-      <Navbar />
       <AboutMain />
       <AboutDetail />
       <Vision />

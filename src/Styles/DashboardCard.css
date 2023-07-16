@@ -1,0 +1,60 @@
+.fourGearServiceCard {
+    width: 40.4rem;
+    height: 21.8rem;
+    background-color: #fff;
+    border-radius: 2.3rem;
+    padding: 3.6rem 4.4rem;
+  }
+  .fourGearBikeInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fourGearBikeInfo h5,
+  .fourGearCustomerInfo h5 {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  .fourGearCustomer {
+    height: 4.3rem;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+  }
+  .fourGearBikeInfo {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 2.5rem;
+  }
+  .fourGearCustomerInfo h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #b65e0c;
+  }
+  .fourGearStatus {
+    margin: auto 0;
+    width: 12.3rem;
+    height: 2.5rem;
+    border-radius: 0.7rem 0rem 0rem 0.7rem;
+    margin-right: -45px;
+  }
+  .fourGearStatus h5 {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+  }
+  .fourGearCardButton {
+    margin-top:2.5rem;  
+    width: 100%;
+    height: 3.3rem;
+    border-radius: 0.7rem;
+    border: 2px solid #b65e0c;
+    color:#b65e0c;
+    text-decoration: none;
+    background-color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
