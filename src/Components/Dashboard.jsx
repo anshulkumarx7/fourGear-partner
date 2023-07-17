@@ -4,6 +4,7 @@ import "../Styles/Dashboard.css";
 import { MagnifyingGlass } from "react-loader-spinner";
 import DashBoardCard from "./DashBoardCard";
 import axios from "axios";
+
 import { AuthContext } from "../Context/AuthContext";
 function Dashboard() {
   const { regenerateToken, logout } = useContext(AuthContext);
@@ -64,6 +65,7 @@ function Dashboard() {
   useEffect(()=>{
     fetchBookingData();
   },[bookingData])
+  
   console.log(`bookingData :${bookingData}`);
   return (
     <div>

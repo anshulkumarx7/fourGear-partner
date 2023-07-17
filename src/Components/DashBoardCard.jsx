@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "../Styles/DashboardCard.css";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function DashBoardCard(props) {
   let accessToken = localStorage.getItem("accessToken");
   const headers = {
@@ -27,8 +29,15 @@ function DashBoardCard(props) {
       console.log(error);
     }
   };
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="fourGearServiceCard">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="fourGearServiceCard"
+    >
       <div className="fourGearBikeInfo">
         <h5>#{props.id.substr(props.id.length - 5)}</h5>
         <h5>
@@ -50,7 +59,9 @@ function DashBoardCard(props) {
           {!props.declined && (
             <h5>{props.confirmed ? "Confirmed" : "Pending"}</h5>
           )}
-          {props.declined && <h5 className="fourGearStatus declinedStatus">Cancelled</h5>}
+          {props.declined && (
+            <h5 className="fourGearStatus declinedStatus">Cancelled</h5>
+          )}
         </div>
       </div>
       <div className="fourGearAddressInfo">
@@ -60,8 +71,7 @@ function DashBoardCard(props) {
         <h5>{props.address}</h5>
       </div>
       {props.declined ? (
-        <div>
-        </div>
+        <div></div>
       ) : (
         <div>
           {props.confirmed ? (
@@ -73,8 +83,8 @@ function DashBoardCard(props) {
           )}
         </div>
       )}
-      {
-        (props.declined || !props.confirmed && (
+      {props.declined ||
+        (!props.confirmed && (
           <button
             className="fourGearCardButton cardDeclineButton"
             onClick={handleDecline}

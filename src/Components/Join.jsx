@@ -7,7 +7,8 @@ import ownerImageValidations from "../schemas/ownerImageValidations";
 import { CgDanger } from "react-icons/cg";
 import { JoinContext } from "../Context/JoinContext";
 import { useNavigate } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Join() {
   const navigate = useNavigate();
 
@@ -35,6 +36,9 @@ function Join() {
   };
   useEffect(() => {
     getLocation();
+  }, []);
+  useEffect(() => {
+    AOS.init();
   }, []);
   // const [ownerImage, setOwnerImage] = useState("");
   // const [shImage, setShopImage] = useState("");
@@ -110,7 +114,8 @@ function Join() {
   return (
     <div className="fourGearJoin">
       <div className="fourGearJoinLeftContainer">
-        <img src={Image1} alt="fourgear" />
+      
+        <img data-aos="zoom-in" data-aos-duration="3000"  src={Image1} alt="fourgear" />
         <h1>
           Become <span className="colorChange">Four Gear</span> Partner Today!
         </h1>
