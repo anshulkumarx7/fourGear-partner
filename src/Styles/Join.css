@@ -173,22 +173,22 @@
   }
   .fourGearJoinLeftContainer h1,
   .colorChange {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .fourGearJoinLeftContainer h5 {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
   .fourGearJoinRightContainer {
     width: 29rem;
   }
   .fourGearJoinRightContainer h2 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .fourGearJoinForm {
-    width: 23rem;
+    width: 24rem;
   }
   .fourGearJoinForm input::placeholder {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   .fourGearJoinButton {
     padding: 0.7rem 1.7rem;
@@ -198,19 +198,22 @@
   .fourGearJoinForm input[type="password"],
   .fourGearJoinForm [type="number"],
   .fourGearJoinForm [type="email"],.fourGearJoinForm select {
-    height: 3rem;
-    font-size: 0.8rem;
+    height: 3.5rem;
+    font-size: 1.2rem;
   }
   .inputFile {
-    height: 3rem;
+    height: 3.5rem;
   }
   .inputFile h4 {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   .cgDanger {
     font-size: 1rem;
   }
   .loginErrors {
     font-size: 1rem;
+  }
+  .fourGearJoinButton {
+    font-size: 1.2rem;
   }
 }
