@@ -122,41 +122,43 @@
 }
 @media screen and (max-width: 650px) {
   .fourGearSignin{
-    height:auto;
+    height:81vh;
     padding:5rem 0;
   }
   .fourGearSigninForm {
-    width: 30.06rem;
-    height: 26.9rem;
+    width: 33.06rem;
+    height: 30.9rem;
   }
   .fourGearSigninForm h2 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     line-height: 2.4rem;
+    margin: 1.5rem 0;
   }
   .fourGearSigninFormContainer {
-    width: 27.54rem;
+    width: 29.54rem;
   }
   .fourGearSigninFormContainer input {
-    height: 3.27rem;
-    margin-bottom: 1.25rem;
-    font-size:1rem;
+    height: 3.7rem;
+    font-size:1.2rem;
+    /* margin-bottom: 1.25rem; */
   }
   .fourGearSigninForm button {
-    width: 22.011rem;
-    height: 3.183rem;
+    width: 24.011rem;
+    height: 3.4rem;
     margin:0.75rem;
   }
   .fourGearSigninButton{
     margin:unset;
   }
   .fourGearSigninButton button{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .fourGearRegisterButton button{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    /* padding-bottom: 1.5rem; */
   }
   .bt-signin a {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .cgDanger {
     font-size: 1rem;

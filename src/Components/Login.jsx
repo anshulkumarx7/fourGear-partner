@@ -72,10 +72,10 @@ function Login() {
                 value={loginData.mobileNumber}
                 autoComplete="off"
               ></input>
-              {errors.mobileNumber && (
+              {errors.phone && (
                 <div className="loginErrors">
                   <CgDanger className="cgDanger" />
-                  {errors.mobileNumber}
+                  {errors.phone}
                 </div>
               )}
             </div>
