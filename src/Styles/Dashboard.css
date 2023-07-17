@@ -40,6 +40,7 @@
   font-weight: 400;
 }
 .fourGearLogout {
+  cursor: pointer;  
   height: 100%;
   width: 20%;
   display: flex;
@@ -67,4 +68,33 @@
   gap: 2.5rem;
   flex-wrap: wrap;
 }
-/* card */
+.loaderDashboard{
+  height:70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ebebeb;
+}
+@media screen and (max-width:550px) {
+  .fourGearDashboardCircle{
+    width: 5.5rem;
+    height:5.5rem;
+    margin-right: 0.4rem;
+    display:none;
+  }
+  .fourGearDashboardShopDetails h2{
+    font-size:1.6rem;
+  }
+  .fourGearDashboardShopDetails h5{
+    font-size: 1.2rem;
+  }
+  .fourGearDashboardShopDetails{
+    width:70%;
+  }
+  .fourGearLogout{
+    width: 30%;
+  }
+  .fourGearLogout h2{
+    font-size: 1.6rem;
+  }
+}

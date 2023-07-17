@@ -1,7 +1,9 @@
 .fourGearPartnerBillGeneration {
-  width: 82.09vw;
+  width:100vw;
+  max-width:100%;
   background-color: #ebebeb;
   /* border: 2px solid red; */
+  padding: 10rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +11,7 @@
 .fourGearPartnerBillContainer {
   width: 76.94vw;
   border-radius: 1.04vw;
+  padding: 5rem;
   /* height: 70.55vh; */
   background-color: #ffffff;
   /* border: 2px solid black; */
@@ -105,6 +108,7 @@
 @media screen and (max-width: 550px) {
   .fourGearPartnerBillGeneration {
     width: 100vw;
+    height:82vh;
   }
   .billgenerate input {
     height: 2.5rem;
@@ -115,6 +119,7 @@
     width:13rem;
   }
   .fourGearPartnerBillContainer {
+    padding: unset;
     margin: 2rem 0; 
   }
   .fourGearPartnerBillContainer h2 {

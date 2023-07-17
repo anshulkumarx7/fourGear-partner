@@ -32,7 +32,7 @@ function Bill(props) {
   return (
     <div className="fourGearPartnerBillGeneration">
       <div className="fourGearPartnerBillContainer">
-        <FaBars className="billBars" onClick={props.handle}/>
+        {/* <FaBars className="billBars" onClick={props.handle}/> */}
         <div className="billDetails">
           <h2>
             <span className="billcolor-change">Order Id: </span> #123

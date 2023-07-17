@@ -97,6 +97,7 @@ export const AuthProvider = ({ children }) => {
         console.log("navigate");
         navigate("/dashboard");
         console.log("navigated");
+        console.log(accessToken);
         setLoginError("");
       } catch (error) {
         console.log(error);

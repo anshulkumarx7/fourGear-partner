@@ -8,6 +8,7 @@ import MechanicsDetails from "./Components/MechanicsDetails";
 import Dashboard from "./Components/Dashboard";
 import Contact from "./Components/Contact"
 import About from "./Pages/About";
+import Bill from "./Components/Bill"
 import { AuthProvider } from "./Context/AuthContext";
 import { JoinProvider } from "./Context/JoinContext";
 import Navbar from "./Components/Navbar";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<Login/>} />
               <Route path="/dashboard" element={<Dashboard/>}></Route>
+              <Route path="/bill" element={<Bill/>}></Route>
             </Routes>
             <Footer />
           </JoinProvider>
