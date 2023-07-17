@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/DashboardCard.css";
 import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ThreeDots } from "react-loader-spinner";
 function DashBoardCard(props) {
+  const [loading, setLoading] = useState(false);
   let accessToken = localStorage.getItem("accessToken");
   const headers = {
     Authorization: `Bearer ${accessToken}`,
@@ -23,8 +25,10 @@ function DashBoardCard(props) {
     // console.log(props.id);
     const id = { _id: props.id };
     try {
+      setLoading(true);
       const response = await axios.post(urlDecline, id, { headers });
       console.log(JSON.stringify(response.data));
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -85,12 +89,14 @@ function DashBoardCard(props) {
       )}
       {props.declined ||
         (!props.confirmed && (
-          <button
-            className="fourGearCardButton cardDeclineButton"
-            onClick={handleDecline}
-          >
-            Decline
-          </button>
+          <>
+            <button
+              className="fourGearCardButton cardDeclineButton"
+              onClick={handleDecline}
+            >
+              Decline
+            </button>
+          </>
         ))}
     </div>
   );

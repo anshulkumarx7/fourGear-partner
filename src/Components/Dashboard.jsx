@@ -106,9 +106,56 @@ function Dashboard() {
               </div>
             </div>
             <div className="fourGearRecentServices">
-              <h2 className="fourGearRecentServicesTitle">Recent Services</h2>
+             
+              <h2 className="fourGearRecentServicesTitle">Pending Services</h2>
               <div className="fourGearDashboardService">
-                {bookingData.map((data, index) => {
+                {bookingData.filter(card => (card.isConfirmed || card.isAbandoned) === false ).map((data, index) => {
+                  return (
+                    <DashBoardCard
+                      key={index}
+                      id={data._id}
+                      bikeCompany={data.bike_Company}
+                      bikeModel={data.bike_Model}
+                      customerName={
+                        data.name.charAt(0).toUpperCase() +
+                        data.name.slice(1, data.name.length)
+                      }
+                      customerContact={data.phone}
+                      confirmed={data.isConfirmed}
+                      address={data.address.address}
+                      addressStreet={data.address.street}
+                      addressLandmark={data.address.landmark}
+                      declined={data.isAbandoned}
+                    />
+                  );
+                })}
+              </div>
+              <h2 className="fourGearRecentServicesTitle">Confirmed Services</h2>
+              <div className="fourGearDashboardService">
+                {bookingData.filter(card => (card.isConfirmed) === true ).map((data, index) => {
+                  return (
+                    <DashBoardCard
+                      key={index}
+                      id={data._id}
+                      bikeCompany={data.bike_Company}
+                      bikeModel={data.bike_Model}
+                      customerName={
+                        data.name.charAt(0).toUpperCase() +
+                        data.name.slice(1, data.name.length)
+                      }
+                      customerContact={data.phone}
+                      confirmed={data.isConfirmed}
+                      address={data.address.address}
+                      addressStreet={data.address.street}
+                      addressLandmark={data.address.landmark}
+                      declined={data.isAbandoned}
+                    />
+                  );
+                })}
+              </div>
+              <h2 className="fourGearRecentServicesTitle">Cancelled Services</h2>
+              <div className="fourGearDashboardService">
+                {bookingData.filter(card => card.isAbandoned === true ).map((data, index) => {
                   return (
                     <DashBoardCard
                       key={index}
