@@ -3,69 +3,24 @@ import { LogOut } from "lucide-react";
 import "../Styles/Dashboard.css";
 import { MagnifyingGlass } from "react-loader-spinner";
 import DashBoardCard from "./DashBoardCard";
-import axios from "axios";
-
+import { DashboardContext } from "../Context/DashboardContext";
 import { AuthContext } from "../Context/AuthContext";
+import NotFound from "./NotFound";
 function Dashboard() {
-  const { regenerateToken, logout } = useContext(AuthContext);
-  const [profileData, setProfileData] = useState({});
-  const [bookingData, setBookingData] = useState([]);
-  const [dataLoading, setDataLoading] = useState(false);
-  let accessToken = localStorage.getItem("accessToken");
-  let refreshToken = localStorage.getItem("refreshToken");
-  let configRegenerateToken = {
-    method: "get",
-    maxBodyLength: Infinity,
-    url: "http://localhost:5000/api/auth/refresh",
-    headers: {
-      Authorization: `Bearer ${refreshToken}`,
-    },
-  };
-  const urlUser = "http://localhost:5000/api/partners/user";
-  const urlBooking = "http://localhost:5000/api/bookings/partner/bike";
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
-  };
-  const makeRequest = async () => {
-    try {
-      setDataLoading(true);
-      const response = await axios.get(urlUser, { headers });
-      setProfileData(response.data.user);
-      setDataLoading(false);
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        // whenever there is error with status code 400 regenrating token
-        console.log("Error: Bad Request");
-        regenerateToken(configRegenerateToken);
-        makeRequest();
-      } else {
-        console.log("Error:", error);
-      }
-    }
-  };
-  const fetchBookingData=async()=>{
-    try{
-      const res = await axios.get(urlBooking, { headers });
-      console.log(JSON.stringify(res.data.data));
-      setBookingData(Object.values(res.data.data));
-    }catch(error){
-      if (error.response && error.response.status === 400) {
-        // whenever there is error with status code 400 regenrating token
-        console.log("Error: Bad Request");
-        regenerateToken(configRegenerateToken);
-        fetchBookingData();
-      } else {
-        console.log("Error:", error);
-      }
-    }
-  }
+  const { profileData, bookingData, makeRequest, fetchBookingData, dataLoading } = useContext(DashboardContext);
+  const { logout } = useContext(AuthContext);
   useEffect(() => {
     makeRequest();
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     fetchBookingData();
-  },[bookingData])
-  
+  }, [bookingData])
+  //Pending services
+  const pending = bookingData.filter(card => (card.isConfirmed || card.isAbandoned) === false);
+  //Confirmed Services
+  const confirmed =bookingData.filter(card => (card.isConfirmed) === true);
+  //Cancelled Services
+  const cancelled=bookingData.filter(card => card.isAbandoned === true);
   console.log(`bookingData :${bookingData}`);
   return (
     <div>
@@ -106,12 +61,13 @@ function Dashboard() {
               </div>
             </div>
             <div className="fourGearRecentServices">
-             
+
               <h2 className="fourGearRecentServicesTitle">Pending Services</h2>
               <div className="fourGearDashboardService">
-                {bookingData.filter(card => (card.isConfirmed || card.isAbandoned) === false ).map((data, index) => {
+                {pending.length === 0 && <NotFound/>}
+                {pending.length !=0 && pending.map((data, index) => {
                   return (
-                    <DashBoardCard
+                  <DashBoardCard
                       key={index}
                       id={data._id}
                       bikeCompany={data.bike_Company}
@@ -127,12 +83,12 @@ function Dashboard() {
                       addressLandmark={data.address.landmark}
                       declined={data.isAbandoned}
                     />
-                  );
-                })}
+                  )})};
               </div>
               <h2 className="fourGearRecentServicesTitle">Confirmed Services</h2>
               <div className="fourGearDashboardService">
-                {bookingData.filter(card => (card.isConfirmed) === true ).map((data, index) => {
+                {confirmed.length === 0 && <NotFound/>}
+                {confirmed.length!=0 && confirmed.map((data, index) => {
                   return (
                     <DashBoardCard
                       key={index}
@@ -155,7 +111,8 @@ function Dashboard() {
               </div>
               <h2 className="fourGearRecentServicesTitle">Cancelled Services</h2>
               <div className="fourGearDashboardService">
-                {bookingData.filter(card => card.isAbandoned === true ).map((data, index) => {
+                {cancelled.length === 0 && <NotFound/>}
+                {cancelled.length !=0 && cancelled.map((data, index) => {
                   return (
                     <DashBoardCard
                       key={index}
@@ -181,7 +138,7 @@ function Dashboard() {
         </div>
       )}
     </div>
-  );
-}
+    )
+    };
 
 export default Dashboard;

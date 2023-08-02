@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Styles/DashboardCard.css";
 import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ThreeDots } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
+import { DashboardContext } from "../Context/DashboardContext";
 function DashBoardCard(props) {
-  const [loading, setLoading] = useState(false);
+  const {billServiceId,setBillServiceId}=useContext(DashboardContext);
+  const navigate=useNavigate();
   let accessToken = localStorage.getItem("accessToken");
   const headers = {
     Authorization: `Bearer ${accessToken}`,
@@ -33,9 +36,14 @@ function DashBoardCard(props) {
       console.log(error);
     }
   };
+  const handleGenerateBillButton =()=>{
+    setBillServiceId(props.id);
+    navigate("/bill");
+  }
   useEffect(() => {
     AOS.init();
   }, []);
+
   return (
     <div
       data-aos="fade-up"
@@ -79,7 +87,7 @@ function DashBoardCard(props) {
       ) : (
         <div>
           {props.confirmed ? (
-            <button className="fourGearCardButton">Generate Bill</button>
+            <button onClick={handleGenerateBillButton} className="fourGearCardButton">Generate Bill</button>
           ) : (
             <button className="fourGearCardButton" onClick={handleConfirm}>
               Confirm

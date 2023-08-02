@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Styles/Bill.css";
 import DescIcon from "../assets/id.svg";
 import { IoIosAddCircle, IoIosRemoveCircle } from "react-icons/io";
-import { FaBars } from "react-icons/fa";
+import { DashboardContext } from "../Context/DashboardContext";
 
-function Bill(props) {
+function Bill() {
+  const {bookingData,billServiceId}=useContext(DashboardContext);
   const [billDetails, setBillDetails] = useState([
     {
       description: "",
@@ -35,10 +36,10 @@ function Bill(props) {
         {/* <FaBars className="billBars" onClick={props.handle}/> */}
         <div className="billDetails">
           <h2>
-            <span className="billcolor-change">Order Id: </span> #123
+            <span className="billcolor-change">Order Id: </span> {billServiceId}
           </h2>
           <h2>
-            <span className="billcolor-change">Customer Name: </span>Akash Jha
+            <span className="billcolor-change">Customer Name: </span>Anshul
           </h2>
         </div>
         <div className="billDetails">

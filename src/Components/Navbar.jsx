@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import "../Styles/Navbar.css";
 import { NavLink } from "react-router-dom";
-import FourgearLogo from "../assets/lopgo 1.svg";
+import FourgearLogo from "../assets/LogoMotoMagicians.svg";
 import UserLogo from "../assets/user-circle 1.svg";
 import Cross from "../assets/cross.svg";
 import Bars from "../assets/bars.svg";
